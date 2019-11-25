@@ -9,4 +9,4 @@ as well if you copy paste the code, and then just split the last cell block to t
 
 ## Usage
 
-I have attached in the zip file some figure examples with the words “Welcome to CS547!”(Fig_ex1a,Fig_ex1b) and “Hey!”((Fig_ex2a,Fig_ex2b)), but mainly it can be run on the terminal, else right click with the mouse and press “ Run Python File In Terminal” or however you wish!
+I have attached in the zip file some figure examples with the words “Hello World!”.
