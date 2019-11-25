@@ -4,8 +4,9 @@ Simple genetic algorithm written in Python from scratch to evolve a string like 
 ## Installation
 
 Python3 is needed, no other libraries except the built in ones of math, random and string. (which are imported either way in the program). 
-as well if you copy paste the code, and then just split the last cell block to the calls of the GA function and random check for relative benchmark. This was tested with Python 3.6.8 [GCC 8.3.0]
+
+Random check for relative benchmark is included. This was tested with Python 3.6.8 [GCC 8.3.0]
 
 ## Usage
 
-I have attached in the zip file some figure examples with the words “Hello World!”.
+I have attached some figure examples with the target word “Hello World!” output.
