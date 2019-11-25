@@ -52,13 +52,14 @@ def initial_population_generation(pop_number, target_string, string_genes):
         population.append(random_string(len(target_string), string_genes))
     return population
 
-def crossover_individuals(sel_population, gene_language):
+def crossover_individuals(sel_population, gene_language, cxprob=0.8):
     """
         Descriptions:
             Crossover the random selected individuals from sel_population.
         Input:
             sel_population : List of chromosomes from ranked selection
             gene_language : String of ascii letters/gene pool
+            cxprob : Cross over probability.
         Output:
             cross_population: List of population with new offsprings.
     """
@@ -66,32 +67,39 @@ def crossover_individuals(sel_population, gene_language):
     cross_population = random.sample(sel_population, len(sel_population))
 
     for parent1, parent2 in zip(cross_population[::2], cross_population[1::2]):
-        lst1 = list(parent1)
-        lst2 = list(parent2)
-        cross_index = random.randint(1,len(lst1)-2)
-        lst1[:cross_index], lst2[:cross_index] = lst2[:cross_index], lst1[:cross_index]
-        parent1 = ''.join(lst1)
-        parent2 = ''.join(lst2)
+
+        prob = random.random()
+        if prob <= cxprob:
+            lst1 = list(parent1)
+            lst2 = list(parent2)
+            cross_index = random.randint(1,len(lst1)-2)
+            lst1[:cross_index], lst2[:cross_index] = lst2[:cross_index], lst1[:cross_index]
+            parent1 = ''.join(lst1)
+            parent2 = ''.join(lst2)
 
     return cross_population
 
-def mutate_individuals(population, gene_language):
+def mutate_individuals(population, gene_language, mprob=0.2):
     """
         Descriptions:
             Mutate a random char from population by incrementing or decrementing it by one.
         Input:
             population : List of chromoses to be checked for mutation
             gene_language = String of ascii letters/gene pool
+            mprob : mutation probability
         Output:
             The individuals of population list having random chars mutated.
     """
 
     for i in range(len(population)):
-        index = random.randint(0, len(population[i]) - 1)
-        lst = list(population[i])
-        random_bit_like_change = random.randint(-1,1)
-        lst[index] = chr(ord(lst[index]) + random_bit_like_change)
-        population[i] = ''.join(lst)
+        
+        prob = random.random()
+        if prob <= mprob:
+            index = random.randint(0, len(population[i]) - 1)
+            lst = list(population[i])
+            random_bit_like_change = random.randint(-1,1)
+            lst[index] = chr(ord(lst[index]) + random_bit_like_change)
+            population[i] = ''.join(lst)
     
 def select_individuals(population, target_string, gene_language):
     """
@@ -183,7 +191,7 @@ def random_benchmark(target):
     print("Test: {}".format(test_list))
     return(gen)
 
-def genetic_algorithm_string_evolution(val_string="Welcome to CS547!", pop_number=10, gen_number=2000):
+def genetic_algorithm_string_evolution(val_string="Hello World!", pop_number=10, gen_number=2000):
     """
         Description:
             Genetic Algorithm for String Evolution.
@@ -211,6 +219,7 @@ def genetic_algorithm_string_evolution(val_string="Welcome to CS547!", pop_numbe
     relative_index = 0
     # Iterate for a number of Generations. Break early if fitness functions is minimizes to 0.
     for i in range(iter_number):
+
         # SELECTION
         string_population[:], min_fit, min_word = select_individuals(string_population, 
                                                                     target_string, gene_language)
@@ -232,8 +241,9 @@ def genetic_algorithm_string_evolution(val_string="Welcome to CS547!", pop_numbe
         # MUTATION
         mutate_individuals(string_population, gene_language)
     
-    if relative_index !=0:
+    if relative_index != 0:
         return relative_index
+
     # If not found, print the best values so far:
     if min_fit != 0:
         print(10*"=", "GENETIC ALGORITHM CHEK", 30*"")
@@ -241,8 +251,12 @@ def genetic_algorithm_string_evolution(val_string="Welcome to CS547!", pop_numbe
         print("Iterations/Generations number: {} \nPopulation number: {}".format(iter_number,pop_number))
         return iter_number
 
-# Here we call the ga algol, but can also tweak its values directly. Try for example pop_number=100 and gen_number = 1000
-# Defaults by just calling: genetic_algorithm_string_evolution(), has the "Welcome to CS547!" as a default target string.
-ga_gen_num = genetic_algorithm_string_evolution(val_string="Welcome to CS547!", pop_number=100, gen_number=1000)
-random_iter_num = random_benchmark("Welcome to CS547!")
-print("DIFFERENCE (Random iter number - GA generation number): {}".format(random_iter_num-ga_gen_num))
+def main():
+    """Main function to run program"""
+    ga_gen_num = genetic_algorithm_string_evolution(val_string="Hello World!", pop_number=100, gen_number=1000)
+    random_iter_num = random_benchmark("Hello World!")
+    print("DIFFERENCE (Random iter number - GA generation number): {}".format(random_iter_num-ga_gen_num))
+
+if __name__ == "__main__":
+    
+    main()
