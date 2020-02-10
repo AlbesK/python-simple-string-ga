@@ -226,7 +226,7 @@ def genetic_algorithm_string_evolution(val_string="Hello World!", pop_number=10,
 
         # Checking if fitness value is 0 so we can break out earlier
         if min_fit == 0:
-            print(10*"=", "GENETIC ALGORITHM CHEK", 30*"=")
+            print(10*"=", "GENETIC ALGORITHM CHECK", 30*"=")
             print("Minimum fitness value : {}\nWord : {}".format(min_fit, min_word)) 
             # https://codegolf.stackexchange.com/questions/4707/outputting-ordinal-numbers-1st-2nd-3rd#answer-4712
             ending = lambda n: "%d%s" % (n,"tsnrhtdd"[(n/10%10!=1)*(n%10<4)*n%10::4]) # so it prints 1st, 2nd, 3rd, 4th etc correctly for generation
