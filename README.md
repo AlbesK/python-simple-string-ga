@@ -3,7 +3,7 @@ Simple genetic algorithm written in Python from scratch to evolve a string like 
 
 ## Example Output:
 
-![alt text](https://github.com/AlbesK/python-simple-string-ga/edit/master/python_terminal_output.png)
+
 
 
 ## Installation
