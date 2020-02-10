@@ -2,7 +2,7 @@
 Simple genetic algorithm written in Python from scratch to evolve a string like "Hello World" from 'dna' of ascii letters and whitespace.
 
 ## Example Output:
-
+![](https://github.com/AlbesK/python-simple-string-ga/Images/python_terminal_output.png)
 
 
 
