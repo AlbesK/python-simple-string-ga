@@ -1,6 +1,11 @@
 # python-simple-string-ga
 Simple genetic algorithm written in Python from scratch to evolve a string like "Hello World" from 'dna' of ascii letters and whitespace.
 
+## Example Output:
+
+![alt text](https://github.com/AlbesK/python-simple-string-ga/edit/master/python_terminal_output.png)
+
+
 ## Installation
 
 Python3 is needed, no other libraries except the built in ones of math, random and string. (which are imported either way in the program). 
