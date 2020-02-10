@@ -246,7 +246,7 @@ def genetic_algorithm_string_evolution(val_string="Hello World!", pop_number=10,
 
     # If not found, print the best values so far:
     if min_fit != 0:
-        print(10*"=", "GENETIC ALGORITHM CHEK", 30*"")
+        print(10*"=", "GENETIC ALGORITHM CHECK", 30*"")
         print("Not found!\nBest min value so far: {}\nBest Word so Far: {}".format(min_fit, min_word))
         print("Iterations/Generations number: {} \nPopulation number: {}".format(iter_number,pop_number))
         return iter_number
