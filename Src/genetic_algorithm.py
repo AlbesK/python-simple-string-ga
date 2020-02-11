@@ -18,8 +18,7 @@ def eval_fun(test_string, target_string):
     """
         Description:
             Evaluate an individual. Fitness Function! Chose a Root Mean Square 
-            Error (RMSE) difference motivated by the flowchart from the slides 
-            in lecture 1. For each character in the test and target strings 
+            Error (RMSE). For each character in the test and target strings 
             the builtin python function 'ord()' is used for the difference, 
             which returns for a Unicode Character a Unicode Integer value.
             This is needed as Strings are *Immutable* Objects in Python!
